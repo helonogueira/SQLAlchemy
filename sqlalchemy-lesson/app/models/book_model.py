@@ -4,7 +4,7 @@ from database.database import Base # Classe base do SQLAIchemy para todos os mod
 
 # Tabela de associação ja criada, nao precisa ser criada novamente 
 
-class BooksModel(Base):
+class BookModel(Base):
     __tablename__ = "books"  # Nome da tabela no banco
 
     # Column define cada coluna da tabela  
@@ -21,4 +21,4 @@ class BooksModel(Base):
     )
 
     def __repr__(self):
-        return f"<BooksModel(id={self.id}, name='{self.title}', email='{self.isbn}')>"
+        return f"<BookModel(id={self.id}, name='{self.title}', email='{self.isbn}')>"

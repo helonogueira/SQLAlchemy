@@ -1,12 +1,14 @@
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, declarative_base
 from dotenv import load_dotenv
+from pathlib import Path
 import os
 
-load_dotenv()
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./biblioteca.db")
+load_dotenv(BASE_DIR / '.env')
+DATABASE_URL = f"sqlite:///{BASE_DIR}/biblioteca.db"
 
-engine = create_engine(DATABASE_URL) # cria conexão com o banco 
-SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine) # Factory para criar sessões com o banco 
-Base = declarative_base() # classe para nossos modelos ORM
+engine = create_engine(DATABASE_URL)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+Base = declarative_base()
