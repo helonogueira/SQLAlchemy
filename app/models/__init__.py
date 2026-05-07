@@ -1,7 +1,8 @@
 from .author_model import AuthorModel, author_book_association
 from .book_model import BookModel
+from .loan_model import LoanModel
 
-__all__ = ["AuthorModel", "BookModel", "author_book_association"]
+__all__ = ["AuthorModel", "BookModel", "LoanModel", "author_book_association"]
 
 '''
 Sempre use back_populates nos dois lados do relacionamento

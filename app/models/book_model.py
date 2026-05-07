@@ -11,6 +11,7 @@ class BookModel(Base):
     id = Column(Integer, primary_key=True, index=True)  # Chave primária
     title = Column(String, index=True)                   # titulo
     isbn = Column(String, unique=True, index=True)     # ISBN (sinopse)
+    loans = relationship("LoanModel", back_populates="book")
 
    
     # relationship cria o relacionamento entre tabelas
